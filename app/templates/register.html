@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }}
+        {{ form.username }}
+        {% for error in form.username.errors %}
+            <ul><li style="color: red">{{ error }}</li></ul>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.email.label }}
+        {{ form.email }}
+        {% for error in form.email.errors %}
+            <ul><li style="color: red">{{ error }}</li></ul>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.password.label }}
+        {{ form.password }}
+        {% for error in form.password.errors %}
+            <ul><li style="color: red">{{ error }}</li></ul>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.rpassword.label }}
+        {{ form.rpassword }}
+        {% for error in form.rpassword.errors %}
+            <ul><li style="color: red">{{ error }}</li></ul>
+        {% endfor %}
+    </p>
+
+    <input type="submit" value="Sing un">
+</form>
+
+{% endblock %}
+

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h3>Hello, {{ current_user.username }}!</h3>
+    {% for post in posts %}
+        <h2><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+        <h4><a>{{ post.body }}</a></h4>
+
+        {% if post.author == current_user %}
+            <a href="{{ url_for('update_post', post_id=post.id) }}">Update</a>
+            <a href="{{ url_for('delete_post', post_id=post.id) }}">Delete</a>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}
+
